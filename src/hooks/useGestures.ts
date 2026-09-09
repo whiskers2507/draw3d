@@ -1,4 +1,4 @@
-﻿import { useState, useRef, useCallback } from 'react'
+import { useState, useRef, useCallback } from 'react'
 import type { TransformState } from '../types'
 
 const DEFAULT_TRANSFORM: TransformState = {
@@ -24,6 +24,12 @@ export function useGestures(isLocked: boolean) {
   const handleTouchStart = useCallback(
     (e: React.TouchEvent) => {
       if (isLocked) return
+
+      // Prevent gesture tracking if touch originates from controls, sliders, or buttons
+      const target = e.target as HTMLElement | null
+      if (target && target.closest('input, button, [data-no-gesture], header, .glass-dock, .glass-panel')) {
+        return
+      }
 
       if (e.touches.length === 1) {
         // Single finger pan start

@@ -180,7 +180,12 @@ export const TracingViewport: React.FC<TracingViewportProps> = ({
       </div>
 
       {/* 4. Minimalist Top Header */}
-      <header className="relative z-30 w-full px-4 py-3 pt-safe flex items-center justify-between pointer-events-auto">
+      <header
+        className="relative z-30 w-full px-4 py-3 pt-safe flex items-center justify-between pointer-events-auto"
+        onTouchStart={(e) => e.stopPropagation()}
+        onTouchMove={(e) => e.stopPropagation()}
+        onTouchEnd={(e) => e.stopPropagation()}
+      >
         <div className="flex items-center gap-2">
           <button
             onClick={onBack}

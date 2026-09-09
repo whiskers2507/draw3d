@@ -41,7 +41,13 @@ export const ControlDock: React.FC<ControlDockProps> = ({
 }) => {
   return (
     <div className="fixed bottom-0 inset-x-0 z-40 p-3 pb-safe pointer-events-none">
-      <div className="max-w-md mx-auto pointer-events-auto flex flex-col gap-2.5">
+      <div
+        className="max-w-md mx-auto pointer-events-auto flex flex-col gap-2.5"
+        onTouchStart={(e) => e.stopPropagation()}
+        onTouchMove={(e) => e.stopPropagation()}
+        onTouchEnd={(e) => e.stopPropagation()}
+        onMouseDown={(e) => e.stopPropagation()}
+      >
         {/* Floating Lock Pill Button (Positioned at center when locked, or in dock when unlocked) */}
         {isLocked ? (
           <div className="flex items-center justify-between px-4 py-3 rounded-2xl glass-dock border border-amber-500/40 shadow-xl shadow-amber-500/10 animate-pulse">
@@ -77,6 +83,9 @@ export const ControlDock: React.FC<ControlDockProps> = ({
                 max="100"
                 value={opacity}
                 onChange={(e) => onOpacityChange(Number(e.target.value))}
+                onTouchStart={(e) => e.stopPropagation()}
+                onTouchMove={(e) => e.stopPropagation()}
+                onTouchEnd={(e) => e.stopPropagation()}
                 className="flex-1"
               />
               <span className="text-xs font-mono font-bold text-cyan-400 w-9 text-right shrink-0">
