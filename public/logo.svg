@@ -1,0 +1,53 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16" />
+      <stop offset="50%" stop-color="#101726" />
+      <stop offset="100%" stop-color="#060911" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+    <linearGradient id="penGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Squircle Base -->
+  <rect x="24" y="24" width="464" height="464" rx="112" fill="url(#bgGrad)" stroke="#1e293b" stroke-width="6" />
+  
+  <!-- Subtle Grid lines -->
+  <line x1="256" y1="96" x2="256" y2="416" stroke="#1e293b" stroke-width="2" stroke-dasharray="8 8" opacity="0.4" />
+  <line x1="96" y1="256" x2="416" y2="256" stroke="#1e293b" stroke-width="2" stroke-dasharray="8 8" opacity="0.4" />
+
+  <!-- Viewfinder AR Target Corners -->
+  <path d="M 116 164 L 116 124 A 8 8 0 0 1 124 116 L 164 116" stroke="#06b6d4" stroke-width="12" stroke-linecap="round" fill="none" filter="url(#glow)" />
+  <path d="M 348 116 L 388 116 A 8 8 0 0 1 396 124 L 396 164" stroke="#06b6d4" stroke-width="12" stroke-linecap="round" fill="none" filter="url(#glow)" />
+  <path d="M 396 348 L 396 388 A 8 8 0 0 1 388 396 L 348 396" stroke="#06b6d4" stroke-width="12" stroke-linecap="round" fill="none" filter="url(#glow)" />
+  <path d="M 164 396 L 124 396 A 8 8 0 0 1 116 388 L 116 348" stroke="#06b6d4" stroke-width="12" stroke-linecap="round" fill="none" filter="url(#glow)" />
+
+  <!-- Concentric Orbit Ring -->
+  <circle cx="256" cy="256" r="110" stroke="url(#accentGrad)" stroke-width="5" stroke-dasharray="14 10" opacity="0.75" />
+  <circle cx="256" cy="256" r="64" stroke="#38bdf8" stroke-width="3" opacity="0.4" />
+
+  <!-- Modern Stylus / Tracing Pen Tip -->
+  <g transform="rotate(-45 256 256)">
+    <!-- Pen Body -->
+    <path d="M 238 120 L 274 120 L 268 250 L 244 250 Z" fill="url(#penGrad)" opacity="0.9" />
+    <!-- Pen Nib Cone -->
+    <path d="M 244 250 L 268 250 L 256 295 Z" fill="#38bdf8" />
+    <!-- Ultra-sharp tip point -->
+    <circle cx="256" cy="298" r="5" fill="#f8fafc" filter="url(#glow)" />
+  </g>
+
+  <!-- Precision Crosshair Center Beacon -->
+  <circle cx="256" cy="256" r="8" fill="#38bdf8" filter="url(#glow)" />
+  <circle cx="256" cy="256" r="3" fill="#ffffff" />
+</svg>
